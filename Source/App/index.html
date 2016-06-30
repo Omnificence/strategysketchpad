@@ -1,0 +1,2357 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Strategy Landscape</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/core/theme.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/drum.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom/custom.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/core/skins.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom/splashscreencss.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins/transition/component.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins/transition/animations.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins/toastr/materialadmin.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins/toastr/toastr.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/asSwitch.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom/objective.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom/chat.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom/scroll.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.jqplot.min.css" />
+    <link href="assets/js/core/photo/jquery.cropbox.css" rel="stylesheet" />
+
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/bootstrap/mybootstrap.css" />-->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/mystatapp.css" />
+    <style>
+        html{
+            height:768px;
+            max-height:768px;
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body class="skin-green sidebar-mini sidebar-collapse" style="overflow: hidden; max-height:768px; height:768px;">
+    <div class="" id="fad">
+
+    </div>
+    <div id="fullLoader" class="blockUI blockUIWhite">
+        <img src='assets/img/loader.gif'>
+    </div>
+    <div class="wrapper">
+        <input type="hidden" id="hdniskpi" value="false" />
+        <input type="hidden" id="hdnkpiid" value="false" />
+        <input type="hidden" id="hdnuserid" value="0" />
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu" id="appMenu">
+
+                    <li id="menu_bars" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/menu_bars.png" />
+                        </a>
+                    </li>
+                    <li class="header">Strategy Landscape</li>
+                    <li id="p_intro" data-id="#page-screen" data-animate="1" class="transition active" itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/innovation.png" /> <span>Introduction</span>
+                        </a>
+                    </li>
+                    <li id="p_vision" data-id="#page-vision" data-animate="1" class="transition orgonly" itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/vision_1.png" /> <span>Vision</span>
+                        </a>
+                    </li>
+                    <li id="p_objective" data-id="#page-objective" onclick="$('#hdniskpi').val('false')" data-animate="1" class="transition orgonly" itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/objective.png" /> <span>Objective</span>
+                        </a>
+                    </li>
+                    <li id="p_budget" data-id="#page-budget" data-animate="1" class="orgonly transition" itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/budget_distribution.png" /> <span>Budget Distribution</span>
+                        </a>
+                    </li>
+                    <hr />
+                    <li id="p_function" data-id="#page-function" data-animate="1" class="transition orgonly" itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/functions.png" /> <span>Functions</span>
+                        </a>
+                    </li>
+                    <li id="p_kpi" data-animate="1" onclick="onClickKpis(this); " data-id="#page-kpi" class="transition orgonly" itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/kpis.png" /> <span>KPIs</span>
+                        </a>
+                    </li>
+                    <hr />
+                    <li id="p_explore" data-id="#page-explore" data-animate="1" class="transition " itemtype="menu" onclick="onLoadExplore()">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/explore.png" /> <span>Explore</span>
+                        </a>
+                    </li>
+                    <li id="p_sync" onclick="onClickSync();" class="orgonly" itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img src="assets/img/sync.png" /> <span>Sync</span>
+                        </a>
+                        <span class="badge" style="top: 5px;
+    position: absolute;
+    left: 5px;
+    background-color: rgb(239, 90, 37); display:none;" id="sync_count">10</span>
+                    </li>
+                    <li id="p_profile" data-id="#page-profile" data-animate="1" class="transition " itemtype="menu">
+                        <a href="javascript:void(0)">
+                            <img id="userMnuProfilePic" src="assets/img/profile.png" /> <span>Profile</span>
+                        </a>
+                    </li>
+                    <li id="p_logout" itemtype="menu">
+                        <a href="javascript:void(0)" onclick="onClickLogout()">
+                            <img id="lgout" style="width: 30px;" src="assets/img/logout-512.png" /> <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content pt-perspective" id="mainContainer">
+                <div class="load-bar" id="load-bar-1">
+                    <div class="lbar"></div>
+                    <div class="lbar"></div>
+                    <div class="lbar"></div>
+                </div>
+<div id='page-screen' class='pt-page' onload='onLoadScreen' ><div class="row" style="height:768px; background-color:#52B8B7;">
+    <div class="infoContainer">
+        <img src="assets/img/info.png" class="info-icon" onclick="showMenuHelp();" />
+    </div>
+    <div class="main-container-inner">
+        <div class="container inner-box">
+            <div id="myCarousesc" class="carousel slide" data-ride="carousel" data-interval="false">
+                <ol class="carousel-indicators indicate-bottom">
+                    <li data-target="#myCarousesc" data-slide-to="0" class=""></li>
+                    <li data-target="#myCarousesc" data-slide-to="1" class="active"></li>
+                </ol>
+                <div id="car_my" class="carousel-inner" role="listbox" style="position: relative;width: 100%; overflow: hidden;top:32px;">
+                    <div class="item ">
+                        <div class="row">
+                            <div class="col-sm-12 colopadding">
+                                <img src="assets/img/splashscreen1new.png" style="width:764px; height:545px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item active" style="left:5px;">
+                        <div class="col-sm-12 colopadding">
+                            <img id="chImg" src="assets/img/screen2.png" style="width:760px; height:545px">
+                            <div style="position:absolute; height: 100%; width: 100%; top: 0;">
+                                <div class="row">
+                                    <div style="height:175px;" class="col-sm-4 col-md-4 col-lg-4 colopadding rem" onclick=" $('#p_vision').click() ">
+                                    </div>
+                                    <div style="height:175px;"  class="col-sm-4 col-md-4 col-lg-4 colopadding rem" onclick=" $('#p_objective').click() ">
+                                    </div>
+                                    <div style="height:175px;" class="col-sm-4 col-md-4 col-lg-4 colopadding rem" onclick=" $('#p_budget').click() ">
+                                    </div>
+                                </div>
+                                <div class="mid-padding">
+                                    <div class="row">
+                                        <div style="height:175px;" class="col-sm-6 col-md-6 col-lg-6 colopadding rem" onclick="$('#p_function').click()">
+                                        </div>
+                                        <div style="height:175px;" class="col-sm-6 col-md-6 col-lg-6 colopadding rem"  onclick="checkHasKpi();">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div style="height:175px;" class="col-sm-12 col-md-12 col-lg-12 colopadding" onclick=" $('#p_explore').click()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="" href="#myCarousesc" id="sprev" role="button" data-slide="prev" style="position:absolute;left:-35px;top:50%;">
+                    <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+                    <img src="assets/img/left_arrow.png" style="width:30px;height:30px">
+                    <span class="sr-only">Next</span>
+                </a>
+                <a class="" href="#myCarousesc" role="button" data-slide="next" style="position:absolute;right:-35px;top:50%">
+                    <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+                    <img src="assets/img/right_arrow.png" style="width:30px;height:30px">
+                    <span class="sr-only">Prev</span>
+                </a>
+                <div class="continue-txt transition orgonly" id="p_vision" data-id="#page-vision" onclick="removeClassT('p_vision');" data-animate="1" itemtype="menu">Continue</div>
+                <div class="continue-btn transition orgonly" id="p_vision" data-id="#page-vision" onclick="removeClassT('p_vision');" data-animate="1" itemtype="menu">
+                    <a>
+
+                        <img src="assets/img/continue.png" style="width:30px;height:30px">
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div></div><div id='page-profile' class='pt-page' onload='onLoadProfile' ><div class="row">
+    <div id="myProfileContainer" style="display: none;">
+        <div class="infoContainer">
+            <img src="assets/img/info.png" class="info-icon" onclick="showProfileHelp();" />
+        </div>
+        <div id="myInfoContainer" class="col-md-7 col-sm-7 col-xs-7">
+            <div id="myeditprofile">
+                    <div id="editprofile-1"></div>
+                </div>
+
+
+                <div id="myRole">
+                    <div id="pictureContainer">
+                        <div>
+                            <img id="my-profile-img" alt="profile" src="data:image/png;base64,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" />
+                        </div>
+                    </div>
+                    <div id="roleContainer">
+
+                    </div>
+                </div>
+                <div id="myContact">
+                    <div id="contactMail">
+                    </div>
+                    <div id="contactNumber">
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div id="myCollaboratorsContainer">
+        <div id="collaboratorsTitle">
+            <span><img src="assets/img/profile.png" style="width:40px" /></span>
+            <span style="position:relative; top: 3px;"><strong>Collaborators &nbsp;&nbsp;| </strong></span>
+            <span id="collaboratorsCount"></span>
+        </div>
+        <div style="overflow-x: auto; position: relative; top: 5%;">
+            <div id="collaboratorsList" style="display: none;">
+                <div class="collaboratorContainer">
+                    <div class="collaboratorInfo">
+                        <div>
+                            <img alt="profile" src="assets/img/default.png" />
+                        </div>
+                    </div>
+                    <div class="collaboratorContact">
+                    </div>
+                </div>
+            </div>
+            <div id="noCollaborators" style="display: none;">
+                <div>
+                    <p>Currently no function heads</p>
+                    <p>added. Add function heads while</p>
+                    <p>adding organisation&#39;s domains.</p>
+                </div>
+            </div>
+        </div>
+        <div class="strategyLandscape">
+            <!--<span id="strategy-title" data-animate="1" onclick="onLoadVision(); " class="transition orgonly" itemtype="menu" data-id="#page-vision">Strategy Landscape</span>
+            <span id="strategy-exp" data-animate="1" onclick="onLoadExplore(); " class="transition" itemtype="menu" data-id="#page-explore">Go to Explorer</span>-->
+            <!--<span id="to_vision" data-animate="1" onclick="onLoadVision(); " class="transition orgonly" itemtype="footer" data-id="#page-vision" style="display: none">Strategy Landscape<img src="assets/img/next_slide.png" style="width:40px" /></span>-->
+            <span id="to_explorer" data-animate="1" class="transition "  itemtype="footer" data-id="#page-explore" onclick="onLoadExplore(); removeClassT('p_explore');">
+                <span id="to-explore-title">Go to Explore</span>
+                <img src="assets/img/next_slide.png" style="width:40px" />
+            </span>
+        </div>
+    </div>
+</div></div><div id='page-vision' class='pt-page' onload='onLoadVision' ><div class="row">
+    <div id="visionContainer">
+        <div class="infoContainer">
+            <img src="assets/img/info.png" onclick="hideNativeScroll();" class=" info-icon" data-toggle="modal" data-target="#ceo-vision-help" />
+        </div>
+
+
+        <div id="myVision" class="col-md-9 col-sm-9 col-xs-9">
+            <input type="hidden" id="hdnVisionId" value="0" />
+            <div id="visionTitle" style="font-family: 'MyriadPro_Regular'; color: #ef5a22;">
+                <span><img src="assets/img/vision_2.png" style="width: 35px;" /></span>
+                <span>VISION</span>
+            </div>
+            <div id="visionDescription" style="display: none">
+                <textarea id="visionText" style="font-family: 'MyriadPro_Light';" maxlength="200" onblur="savaVisiondata1(); showYearPicker();" onkeypress="saveVisiondata()" onkeydown="resizevisiontext()" onfocus="hideYearPicker();" placeholder="Add Company Vision"></textarea>
+            </div>
+            <div id="visionData" style="display: none" onclick="editVision();">
+            </div>
+            <div id="visionSave">
+                <span onclick="createVision();"><img src="assets/img/tick.png" style="width: 35px;" class="check-icon-grey" /><img src="assets/img/check.png" class="check-icon-blue" /></span>
+            </div>
+        </div>
+    </div>
+    <div id="visionBudgetContainer">
+        <div id="myBudget" class="col-md-9 col-sm-9 col-xs-9">
+            <div id="budgetTitle" style="font-family: 'MyriadPro_Regular'; color: #52b8b7;">
+                <span><img src="assets/img/dollar_1.png" style="width: 35px" /></span>
+                <span>BUDGET</span>
+                <span style="position:absolute;right:0;padding-right: 150px;">DURATION/TIME PERIOD</span>
+            </div>
+            <div id="budgetPeriods">
+                <div id="budgetContainer">
+                    <table border="0" style="width: 100%; height: 100%; ">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div style="height: 100%; width: 90%; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+                                    <span><img src="assets/img/dollar_2.png" style="width: 70px; position: relative; top: 9%;" /></span>
+                                    <span><input type="text" onblur="CheckBudgetInc()" onkeypress="return checkNumberEntry(event)" step="any" min="0" id="allocatedVisionBudget" onkeydown="resizetext();" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="11" onkeyup="addCommasToNumber(this); ModifyBudget();" /></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="periodContainer">
+                    <table border="0" style="width: 100%; height: 100%; ">
+
+                        <tr>
+                            <td id="fixedYearPrefix" style="background-color: white;">
+                                <div style="        font-size: 65px;
+    border-left: 5px solid #EF5a22;
+    padding-left: 10px;
+    padding-top: 9px;
+    padding-bottom: 12px;
+    height: 90px;
+        background-color: white;
+    ">
+                                    <div style="    height: 75px;
+    border-right: 3px solid #CCC; color:#ccc;">20</div>
+                                </div>
+                            </td>
+                            <td id="budgetStartYear">
+                                <select id="stDat" style="visibility:hidden">
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option selected value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="42">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59">59</option>
+                                    <option value="60">60</option>
+                                </select>
+                            </td>
+                            <td style="
+    font-size: 80px;
+    width: 30px;
+    background-color:white;">
+                                <div> -</div>
+                            </td>
+                            <td id="budgetEndYear">
+                                <select id="enDat"  style="visibility:hidden">
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option selected value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="42">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59">59</option>
+                                    <option value="60">60</option>
+
+                                </select>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <br style="clear: left" />
+            </div>
+            <div id="budgetPeriodsText">
+                <div class="currency">
+                    <span>In AUD</span>
+                </div>
+                <div class="yearRange">
+                    <div class="bYear"></div>
+                    <div class="bYear" style="font-size: 18px; color: #000;"><span>From</span></div>
+                    <div class="bYear" style="font-size: 18px; color: #000;"><span>To</span></div>
+                    <br style="clear: left" />
+                </div>
+            </div>
+        </div>
+        <div class="next-Page" style="z-index:9999999;width: 60px;height: 60px;">
+            <div id="to_objective" data-id="#page-objective" onclick="hideKpi(); removeClassT('p_objective');" class="transition" data-animate="1" itemtype="footer"><img src="assets/img/next_slide.png" style="width: 40px;position: relative; left: 8px; top: 8px; " /></div>
+        </div>
+    </div>
+</div></div><div id='page-objective' class='pt-page' onload='onLoadObjective' ><div id="newObjectiveSection">
+    <div class="row">
+        <div id="blurCont" style="display:none;">
+
+        </div>
+        <div class="objContainer bg-blueshade" id="objContainer">
+            <div class="infoContainer">
+                <img src="assets/img/info.png" class="info-icon" data-toggle="modal" data-target="#ceo-objective-help" />
+            </div>
+            <div class="objInputCont col-md-9 col-sm-9 col-xs-9">
+                <input type="hidden" id="hdnObjectiveId" value="0" />
+                <div class="objTitle clr-darkblu">
+                    <span><img src="assets/img/objective_2.png" style="width: 35px;" /></span>
+                    <span>OBJECTIVES</span>
+                </div>
+                <div id="objDesc" style="display: block;">
+                    <textarea id="objText" style="font-family: 'MyriadPro_Light';" maxlength="100" placeholder="Add Company Objective" onclick="editObjectiveDetail();"></textarea>
+                </div>
+                <div class="objSave">
+                    <span onclick="createObjective();"><img src="assets/img/tick.png" style="width: 35px;" class="check-icon-grey1" /><img src="assets/img/check.png" class="check-icon-blue1" /></span>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-9" style="margin-left: 150px; z-index: 8;">
+                <div id="drivers" class="pulldownMenu" style="display:none;">
+                    <div class="pulldownMenuCont">
+                        <label class="choose-drivers-lable">Choose Drivers</label>
+                        <table>
+                            <tr>
+                                <td id="pre-defined-drivers"></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+                <div id="btnPullDown" onclick="pullDownMenu('#drivers');" class="pulldownBtn clr-darkblu">
+                    <span><img src="assets/img/add_drivers.png" style="width: 24px;" /> </span>
+                    Add Drivers<span><img src="assets/img/drop_down.png" style="width: 28px;" /> </span>
+                </div>
+                <div id="btnPullUp" onclick="pullUpMenu('#drivers');" class="pulldownBtnDone clr-darkblu" style="display: none;">
+                    Done
+                </div>
+            </div>
+        </div>
+        <div class="objectsCont bg-yellow " id="objectsCont">
+            <div class="lower-half-container" id="hasObjectives">
+                <div id="objectMainHalfCont" class="container">
+                    <div class="row" id="objectiveList">
+                        <div class="col-md-4" id="objective-list-col-1">
+
+                        </div>
+                        <div class="col-md-4" id="objective-list-col-2">
+
+                        </div>
+                        <div class="col-md-4" id="objective-list-col-3">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="noObjectives" style="display: none;">
+                <div>
+                    <p>Currently no objectives are</p>
+                    <p>added. Use the input box above </p>
+                    <p>to add objectives</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="next-Page" style="z-index:9999999;">
+        <!--<span id="to_budget" data-id="#page-budget" onclick="changeMenu('#p_budget');" class="transition" data-animate="1">
+            <img src="assets/img/next_slide.png" style="width: 40px; " />
+        </span>-->
+        <div id="p_budget" data-id="#page-budget" onclick="removeClassT('p_budget');" data-animate="1" class="orgonly transition" itemtype="menu" style="width:60px;height:60px;">
+            <img src="assets/img/next_slide.png" style="width: 40px;position: relative; left: 8px; top: 8px; " />
+        </div>
+    </div>
+</div>
+
+<div id="objectiveDetailsSection" style="display: none;">
+    <div class="row" style="height: 100%;">
+        <div class="functionObjDiv" id="funObjDiv" style="width: 20%; text-align: center;">
+            <div class="kpi-top-bar">
+                <span style="font-family: 'HelveticaNeue_Light';color:white;">Select <strong style="font-family: 'HelveticaNeue_Bold';color:white;">FUNCTION</strong></span>
+            </div>
+            
+            <!-- New Code Starts -->
+            <div class="scrollcontainer">
+                <div class="scrollcontent" onscroll="onContentScroll();" id="functionListContainer">
+                    <div class="contentholder" id="functionList">
+                        <!-- <div class="hiddenitem"></div>
+                        <div class="item">item 1</div>
+                        <div class="item">item 2</div>
+                        <div class="item">item 3</div>
+                        <div class="item">item 4</div>
+                        <div class="item">item 5</div>
+                        <div class="hiddenitem"></div>-->
+                    </div>
+                </div>
+                <div class="marker"> <div class="markerframe"></div></div>
+                <div class="markerbackground"></div>
+                <div style="position: absolute; left: 0px;top:0px; height: 35px; width: 100%;">
+                    <img src="assets/img/up_arrow.png" style="width: 35px; position: absolute; left: 75px;" id="funMoveUp"  onclick="moveUp();"/>
+                </div>
+                <div style="position: absolute; left: 0px; top:708px; height: 35px; width: 100%; ">
+                    <img src="assets/img/down_arrow.png" style="width: 35px; position: absolute; left: 75px; bottom: 10px;" id="funMoveDown" onclick="moveDown();" />
+                </div>
+            </div>
+            <!-- New Code Ends -->
+           
+        </div>
+        <div class="functionObjDiv" style="width: 53%; background: #fff;">
+            <div class="kpi-top-bar">
+                <span style="font-family: 'HelveticaNeue_Light'">Select <strong style="font-family: 'HelveticaNeue_Bold'">OBJECTIVE</strong></span>
+            </div>
+            <div id="obj-list-container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <input type="hidden" id="hdnCurrentHighlightFunctionId" value="0" />
+                    <input type="hidden" id="hdnCurrentHighlightObjectiveId" value="0" />
+                    <ol class="carousel-indicators"></ol>
+                    <div id="obj-list-table">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <div class="carousel-inner">
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Carousel controls -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                            <span><img src="assets/img/left_arrow.png" style="width: 30px;" /></span>
+                        </a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                            <span><img src="assets/img/right_arrow.png" style="width: 30px;" /></span>
+                        </a>
+                    </div>
+                    <!--<ol class="carousel-indicators"></ol>-->
+                </div>
+            </div>
+            <div id="kpi-icon-container" onclick="onClickKPIList('kpi-list-toggler')">
+
+            </div>
+            <div style="position: relative; z-index: 9; left: 0px; right: 0px; top: -30px">
+                <div class="kpi-div" style="display: none;">
+                    <div class="driver-table kpi-table">
+                        <table class="driver-table" style="width: 100%;" id="kpi-list-container"></table>
+                    </div>
+                </div>
+                <div onclick="onClickKPIList(this.id)" id="kpi-list-toggler" class="bg-gray bg-shadow show-kpi">
+                    <span><img class="darrow" src="assets/img/down_arrow_2.png" style="width: 25px;" /></span>
+                </div>
+            </div>
+            <div class="obj_right_arrow"></div>
+            <div style="padding: 10px; top: -40px; position: relative;">
+                <div style="padding: 15px;">
+                    <span style="font-family: 'HelveticaNeue_Bold'; color: #58585b;font-size:16px;"><span><img src="assets/img/right_double_arrow.png" style="width: 20px; position: relative; top: -2px;"/> </span>&nbsp;Add KPIs for the selected Function and Objective</span>
+                    <br />
+                </div>
+                <div style="height: 550px; overflow-y: auto; padding: 10px; -webkit-overflow-scrolling: touch; padding-bottom: 70px">
+                    <div>
+                        <div id="new-kpi-list">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="functionObjDiv" style="width: 27%">
+            <div class="kpi-top-bar remove-bg">
+                <div class="infoContainer">
+                    <img src="assets/img/info.png" class="info-icon" data-toggle="modal" data-target="#ceo-kpi-help" />
+                </div>
+                <span style="font-family: 'HelveticaNeue_Light'; position:absolute;top:103px;right:475px;z-index:99999">Select <strong style="font-family: 'HelveticaNeue_Bold'">KPI LENS</strong></span>
+            </div>
+
+            <br />
+            <div style="background: #fff; margin: 15px; height: 380px;">
+                <div style="height: 30px; text-align: center; line-height: 30px; font-family: 'HelveticaNeue_Bold'; font-size: 16px;">
+                    <span>STATISTICS</span>
+                </div>
+                <div id="statisticsGraph" style="height: 190px;text-align:center;">
+                    <div id="statisticsG" style="width: 225px; height: 150px">
+                    </div>
+                    <div id="strategic_Carousel" style="width: 70%;" class="sGraph carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <span>FUNCTIONS </span>
+                            </div>
+                            <div class="item">
+                                <span>OBJECTIVES</span>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#strategic_Carousel" data-slide="prev" style="margin-top: -26px;">
+                            <span><img src="assets/img/left_arrow1.png" style="width: 30px;" /></span>
+                        </a>
+                        <a class="carousel-control right" href="#strategic_Carousel" data-slide="next" style="margin-top: -26px;">
+                            <span><img src="assets/img/right_arrow1.png" style="width: 30px;" /></span>
+                        </a>
+                    </div>
+                </div>
+                <hr style="margin: 0px;" />
+                <div style="height: 140px;">
+                    <table border="0" id="statisticsTable">
+                        <tr>
+                            <td>Total Objectives</td>
+                            <td id="total_objectives_defined">0</td>
+                        </tr>
+                        <tr>
+                            <td>Total Functions</td>
+                            <td id="total_functions_defined">0</td>
+                        </tr>
+                        <tr>
+                            <td>Total KPIs defined</td>
+                            <td id="total_kpis_defined">0</td>
+                        </tr>
+                        <tr>
+                            <td>Average KPIs/Objective</td>
+                            <td id="average_kpi_objective">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="overview-navigation">
+                <div id="overview-navigation-title">
+                    <span>Overview Navigation</span>
+                </div>
+                <div style="height: 170px; overflow-y: auto; padding: 10px;">
+                    <div id="navigationList">
+                        <table></table>
+                    </div>
+                </div>
+            </div>
+
+            <div style=" position: relative;
+    z-index: 999999;
+    left: 60px;
+    color: white;
+    font-size: 18px;
+    top: 35px;" id="p_explore1" data-id="#page-explore" data-animate="1" class="transition " itemtype="menu" onclick="onLoadExplore()">Go to Explore</div>
+            <div class="next-Page" style="z-index:9999999;">
+                <!--<span id="to_explore" data-id="#page-explore" onclick="changeMenu('#p_explore');" class="transition" data-animate="1">
+            <img src="assets/img/next_slide.png" style="width: 40px; " />
+        </span>-->
+                <span id="p_explore" data-id="#page-explore"  data-animate="1" class="transition " itemtype="menu" onclick="onLoadExplore();removeClassT('p_explore');" style="padding: 26px;">
+                    <img src="assets/img/next_slide.png" style="width: 40px; position: absolute;left: 2px;bottom: -8px;" />
+                </span>
+            </div>
+        </div>
+        <br style="clear: left" />
+    </div>
+</div></div><div id='page-budget' class='pt-page' onload='onLoadBudget' ><div class="row">
+    <div class="objContainer bg-yellow" id="budContainer">
+        <div class="innerCont" style="padding: 10px 20px 10px 20px;height:100%;">
+            <div class="col-md-12" style="text-align: right;">
+                <img src="assets/img/info.png" class="info-icon" data-toggle="modal" data-target="#ceo-budget-help">
+            </div>
+            <div class="col-md-12 graph-cont">
+                <div class="bg-shadow graph-inner-cont">
+                    <div class="col-md-8  no-padd full-height">
+                        <div class="bud-header"><div class="pull-left f-16-bold clr-darkblu" style="padding-left: 15px;"> Allocate Budget to Objective (%)</div><div class="pull-right" style="margin-left:20px;"><div class="dobjbox"></div><span style="font-size:19px;top: 1px; position: relative"> Objective</span></div>  </div>
+                        <div class="bg-wshade" style="height:calc(100% - 40px); overflow:hidden; ">
+                            <div id="barDiv" style="margin-top: 26px;display:table;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4  no-padd full-height">
+                        <div class="bud-header" style="text-align:center; font-size:19px;">Budget Allocation Chart  </div>
+                        <div class="bg-wshade" style="height:calc(100% - 40px); ">
+                            <table class="budpietab">
+                                <tr>
+                                    <td class="title" colspan="3">Total Budget</td>
+                                </tr>
+                                <tr>
+                                    <td class="amount" colspan="3"><span>$</span> <span id="allBud" style="font-family: 'HelveticaNeue_Bold';"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="allbud" style="width:82px;"><span id="aBud">0</span></td>
+                                    <td>
+                                        <div class="bouter">
+                                            <div id="pie1" style=" width:180px; height:180px;"></div>
+                                        </div>
+                                    </td>
+                                    <td class="uallbud" style="width:82px;"><span id="uaBud">100</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="txtinfo" colspan="3">
+                                        <div class="allbudDiv"> <div class="sm-circle"></div> Allocated Budget</div>
+                                        <div class="uallbudDiv"> <div class="sm-circle"></div> Unallocated Budget</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div style="    height: 2px;
+    background-color: white;
+    width: 100%;
+    position: relative;
+    z-index: 999999;
+    /* border-style: outset; */
+    border: 2px outset #f4f4f4;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="objectsCont bg-blueshade" id="budCont">
+        <div style="height:305px;">
+            <div class="innerCont" style="padding: 0px 20px 10px 20px;height:100%;">
+                <div class="col-md-12" style="height:100%;">
+                    <div class="bud-cont-main">
+                        <div id="bud-nodata">
+                            Click on bar to view details
+                        </div>
+                        <div id="bud-data">
+                            <table style="width:100%; height:100%;   ">
+                                <tr>
+                                    <td style="width:50%; border-right: 1px solid #B0B0B1;">
+                                        <div style="padding:20px;">
+                                            <div id="objName" class="objCont">
+                                                Become a trust advisor a trust advisor a trust advisor a trust advisor a trust advisor a trust advisor a trust advisor
+                                            </div>
+                                            <div class="lbl-driv">
+                                                <img style="width: 22px;margin-top: -3px;" src="assets/img/add_driversg.png" /> <span> Drivers</span>
+                                                <hr />
+                                                <ul id="liDrivers" style="padding-left: 30px;  color: #6D6E70;">
+                                                    <li>asdasd asdasdasd asd</li>
+                                                    <li>asdasd asdasdasd asd</li>
+                                                    <li>asdasd asdasdasd asd</li>
+                                                    <li>asdasd asdasdasd asd</li>
+                                                    <li>asdasd asdasdasd asd</li>
+                                                    <li>asdasd asdasdasd asd</li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <div id="gaug">
+
+                                        </div>
+                                        <div id="allbudval" style="    font-family: 'HelveticaNeue_Bold';">
+                                            $ 123.123
+                                        </div>
+                                        <div style="font-size: 18px;margin-top: 20px;">
+                                            Allocated Budget for this Objective
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="    position: relative;
+
+    z-index: 999999;
+    left: 760px;
+    color: white;
+    font-size: 18px;
+    font-weight:bold;
+    top: 12px;" id="p_function1" data-id="#page-function" onclick="removeClassT('p_function');" data-animate="1" class="transition orgonly" itemtype="menu">Define Functions</div>
+        <div class="next-Page" style="z-index:9999999;">
+            <!--<span id="to_function" data-id="#page-function" class="transition" data-animate="1">
+                <img src="assets/img/next_slide.png" style="width: 40px; " />
+            </span>-->
+            <span id="p_function" onclick="removeClassT('p_function');" data-id="#page-function" data-animate="1" class="transition orgonly" itemtype="menu">
+                <img src="assets/img/next_slide.png" style="width: 40px; " />
+            </span>
+        </div>
+    </div>
+</div></div><div id='page-function' class='pt-page' onload='onLoadFunction' ><div class="row">
+    <div id="newFunctionContainer">
+        <div class="infoContainer">
+            <img src="assets/img/info.png" class="info-icon" data-toggle="modal" data-target="#ceo-function-help" />
+        </div>
+        <div id="myFunctions" class="col-md-10 col-sm-10 col-xs-10">
+            <input type="hidden" id="hdnFunctionId" value="0" />
+            <input type="hidden" id="hdnFunctionIndex" value="0" />
+            <div style="float: left; width: 70%; padding: 20px 30px 15px 50px;">
+                <div id="functionTitle" class="clr-darkblu">
+                    <span>FUNCTION</span>
+                </div>
+                <div id="functionDescription">
+                    <input type="text" id="newFunctionText" maxlength="50" style="font-family: 'MyriadPro_Light';" placeholder="Add Function" class="form-control" onclick="editFunction1()" />
+                    <div id="chooseFunction" onclick="chooseFunctionName();">
+                        <img src="assets//img/left_arrow_fill.png" style="width:20px;" />
+                    </div>
+                </div>
+                <div>
+                    <span style="font-size: 18px;padding-left: 24px;">Function Owner Details</span>
+                    <br /><br />
+                    <span><img src="assets/img/profile_2.png" style="width: 30px;" /></span>
+                    <span><input type="text" id="f_firstName" maxlength="20" placeholder="Name" onclick="editFunction1()" /></span>
+                    <!--<span><img src="assets/img/profile_2.png" style="width: 30px;" /></span>
+                    <span>&nbsp;&nbsp;<input type="text" id="f_lastName" maxlength="20" placeholder="Last name" onclick="editFunction1()" /></span>-->
+                    <span><img src="assets/img/mail.png" style="width: 30px;" /></span>
+                    <span>
+                        <input type="email" id="f_eMail" placeholder="Email" onclick="editFunction1()" class="emi" style="width:56%;padding-right: 90px;" />
+                        <span class="myemail" id="memail">
+                            @gmail.com
+                        </span>
+                    </span>
+                    <span onclick="addNewFunction();">
+                        <img src="assets/img/tick.png" style="width: 35px;position: relative;right: -33px;" class="check-icon-grey2" />
+                        <img src="assets/img/check.png" class="check-icon-blue2" />
+                    </span>
+                </div>
+            </div>
+            <div style="float: left; width: 30%; height: 100%;">
+                <div id="funcSuggListContainer">
+                    <div class="funcSuggestionTitle">
+                        <span>Suggested Functions</span>
+                    </div>
+                    <div id="funcSuggestionList" class="clr-darkblu">
+
+                    </div>
+                </div>
+            </div>
+            <br style="clear: left" />
+        </div>
+    </div>
+    <div id="functionContainer">
+        <div class="row" style="margin-left: 50px !important;">
+            <div id="noFunctions" style="display: none;">
+                <div>
+                    <p>Currently no Functions are</p>
+                    <p>added. Use the input box above </p>
+                    <p>to add Functions</p>
+                </div>
+            </div>
+            <div id="functionList">
+
+            </div>
+           
+        </div>
+      
+    </div>
+    <div class="next-Page" style="z-index:9999999;">
+        <!--<span id="to_explore" data-id="#page-explore" onclick="changeMenu('#p_explore');" class="transition" data-animate="1">
+            <img src="assets/img/next_slide.png" style="width: 40px; " />
+        </span>-->
+        <div id="p_kpi1" onclick="checkHasKpi();" style="width:60px; height:60px; position: absolute; bottom: -20px; right: -30px;">
+            <img src="assets/img/next_slide.png" style="width: 40px;position: relative; " />
+        </div>
+    </div>
+
+</div></div><div id='page-kpi' class='pt-page' onload='onLoadKPI' ><div class="row">
+    <div></div>
+</div></div><div id='page-explore' class='pt-page' onload='' ><div class="row">
+    <div style="margin-left: 50px;">
+        <div class="explore-title">
+            <div class="infoContainer">
+                <span>EXPLORE</span>
+                <img src="assets/img/info.png" class="info-icon" onclick="showExploreHelp();">
+            </div>
+        </div>
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs" style="width: 100%; text-align: center;">
+                <li class="active" style="border-right: 1px solid #ccc;">
+                    <div class="smallArrow" style="height: 8px"></div>
+                    <a href="#explore_tab_strategic" data-toggle="tab">Strategic Landscape</a>
+                </li>
+                <li>
+                    <div class="smallArrow" style="height: 8px"></div>
+                    <a href="#explore_tab_innovation" data-toggle="tab">Innovation Landscape</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="explore_tab_strategic">
+                    <div style="height: 220px; padding: 33px 0px;" class="bg-blueshade">
+                        <div class="col-md-10 col-sm-10 col-xs-10 explore-vision">
+                            <div class="row" style="height: 100%;">
+                                <div class="col-md-11 col-sm-11 col-xs-11" style="float: none; margin: 0 auto; height: 100%; padding: 15px;">
+                                    <span style="font-family: 'MyriadPro_Regular'; color: #ef5a22; font-size: 20px;">VISION</span>
+                                    <br /><br />
+                                    <div id="explore-vision-desc">
+                                        No Vision added yet
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 432px;">
+                        <div style="float: left; width: 60%; height: 100%; border-right: 1px solid #908e8e">
+                            <div style="height: 50px; background: #5bbcbb; border: 1px solid #5bbcbb;">
+                                <table style="color: #fff; width: 100%; height: 100%;">
+                                    <tr>
+                                        <td style="width: 25%; font-family: 'HelveticaNeue_Light'; font-size: 23px; padding-left: 30px;">
+                                            View
+                                        </td>
+                                        <td style="width: 75%;">
+                                            <div id="strategic_myCarousel" style="width: 70%;" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="item active">
+                                                        <span>OBJECTIVES</span>
+                                                    </div>
+                                                    <div class="item">
+                                                        <span>FUNCTIONS</span>
+                                                    </div>
+                                                </div>
+                                                <a class="carousel-control left" href="#strategic_myCarousel" data-slide="prev">
+                                                    <span><img src="assets/img/left_arrow_white.png" style="width: 30px;" /></span>
+                                                </a>
+                                                <a class="carousel-control right" href="#strategic_myCarousel" data-slide="next">
+                                                    <span><img src="assets/img/right_arrow_white.png" style="width: 30px;" /></span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="explore-strategic-objective-view">
+                                <div id="explore-no-objective" style="display: none;">
+                                    <span>No objective <br /> added yet</span>
+                                </div>
+                                <div id="explore-has-objective">
+
+                                </div>
+                            </div>
+                            <div id="explore-strategic-function-view" style="display: none">
+                                <div id="explore-no-function" style="display: none;">
+                                    <span>No function <br /> added yet</span>
+                                </div>
+                                <div id="explore-has-function">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div style="float: left; width: 40%; height: 100%;">
+                            <div class="strategic-statistics-title">
+                                <span>STATISTICS</span>
+                            </div>
+                            <div style="text-align:center;">
+                                <div id="exploreSgraph" style="width: 320px; height: 220px;margin: 0 auto; margin-top: 50px;" ></div>
+                            </div>
+                        </div>
+                        <br style="clear: left" />
+                    </div>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="explore_tab_innovation">
+                    <div id="Explore_UIType_1">
+                        <div style="height: 80px; width: 100%; background-color: #eaeef4;">
+                            <table id="innovation-view-object-table">
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <!--<select onchange="onChangeKPIby(this)">
+                                            <option value="1">Objective</option>
+                                            <option value="2">Function</option>
+                                            </select>-->
+                                            <table class="swipBtn" id="swipBtn" style="height:75px; float:right;">
+                                                <tr>
+                                                    <td style="width:150px;"><span>View KPIs by</span></td>
+                                                    <td><input class="swtype1" type="checkbox" /></td>
+                                                    <td class="swText"><p id="swtype1_on" class="active">Objective</p><p id="swtype1_off">Function</p></td>
+                                                </tr>
+
+                                            </table>
+
+                                            <table class="swipnoBtn" id="swipnoBtn" style="height:75px; width:100%;">
+                                                <tr>
+                                                    <td style="text-align:center;"><span>View KPIs by Objective</span></td>
+                                                </tr>
+
+                                            </table>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="padding: 15px; height: 80px;">
+                                            <div style="border-left: 1px solid #bfc2c7; height: 100%;">
+                                                <div id="innovation_myCarousel" class="carousel slide" data-ride="carousel">
+                                                    <ol class="carousel-indicators" style="bottom: 30px;"></ol>
+                                                    <div class="carousel-inner">
+
+                                                    </div>
+
+                                                    <!-- Carousel controls -->
+                                                    <a class="carousel-control left" href="#innovation_myCarousel" data-slide="prev">
+                                                        <span><img src="assets/img/left_arrow1.png" style="width: 30px;" /></span>
+                                                    </a>
+                                                    <a class="carousel-control right" href="#innovation_myCarousel" data-slide="next">
+                                                        <span><img src="assets/img/right_arrow1.png" style="width: 30px;" /></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bg-blueshade" id="innovation-function-kpi-container">
+
+                        </div>
+                    </div>
+                    <div id="Explore_UIType_2" style="display: none">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div><div id='page-sync' class='pt-page' onload='' ><div class="row">
+    <div></div>
+</div></div><div id='page-chat' class='pt-page' onload='' ><div class="row">
+    <div style="margin-left: 50px;">
+        <div class="discussion-title">
+            <div class="infoContainer">
+                <span data-id="#page-explore" data-animate="2" class="transition" id="back_to_explore" onclick="onClickBackExpo()" itemtype="page">
+                    <img src="assets/img/back.png" style="width: 45px;">
+                    <strong>Back</strong>
+                </span>
+                <img src="assets/img/info.png" class="info-icon" data-toggle="modal" data-target="#ceo-explore-help">
+            </div>
+        </div>
+        <div style="width: 100%">
+            <div class="col-md-10 col-sm-10 col-xs-10 kpi-chat-title-container" id="kpiow">
+                <table>
+                    <tr>
+                        <td id="kpi-chat-title"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span style="color: #a7a9ab">For Function: <span style="color: #000" id="kpi-chat-for-function"></span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span style="color: #a7a9ab">To achieve Objective: <span style="color: #000" id="kpi-chat-for-objective"></span></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-md-12 kpi-chat-title-container" id="kpinoow">
+                <div class="col-md-7">
+                    <table>
+                        <tr>
+                            <td colspan="2" id="kpi-chat-title"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span style="color: #a7a9ab">For Function: <span style="color: #000" id="kpi-chat-for-function"></span></span>
+                            </td>
+                            <td rowspan="2" style="width: 170px;
+    text-align: center;">
+                                <input id="swtype3" class="swtype3" type="checkbox" />
+                                <div>
+                                    <p style="float:left;" class="sw3on">All Good</p><p class="sw3off" style="float:right;padding-right: 10px;">Concern</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span style="color: #a7a9ab">To achieve Objective: <span style="color: #000" id="kpi-chat-for-objective"></span></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-5" style="height: 100%;padding-top: 25px;padding-bottom: 30px;">
+                    <div style="text-align:center;"><input type="button" value="Add Vendors" class="btn-blue" data-toggle="modal" data-target="#myModal" /></div>
+                    <div id="mainVendor" style=" height: calc(100% - 20px);
+    border-left: 1px solid #DBDCDD;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;">
+
+                        <!--<div class="vendorDiv">
+                            <table>
+                                <tr class="title">
+                                    <td colspan="2">Abc Group</td>
+                                </tr>
+                                <tr>
+                                    <td class="name">Jaysudhan omni</td><td class="email">jayasudhan@omnificenec.in</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="vendorDiv">
+                            <table>
+                                <tr class="title">
+                                    <td colspan="2">Abc Group</td>
+                                </tr>
+                                <tr>
+                                    <td class="name">Jaysudhan omni</td>
+                                    <td class="email">jayasudhan@omnificenec.in</td>
+                                </tr>
+                            </table>
+                        </div>-->
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs" style="width: 100%; text-align: center; background: #f4f7f9;">
+                <li class="active" style="border-right: 1px solid #ccc;">
+                    <div class="smallArrow" style="height: 8px"></div>
+                    <a href="#discussion_tab_discussion" data-toggle="tab">Discussion</a>
+                </li>
+                <li>
+                    <div class="smallArrow" style="height: 8px"></div>
+                    <a href="#discussion_tab_innovation" data-toggle="tab">Innovations Posted</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="discussion_tab_discussion">
+                    <div id="chatContent">
+                        <!--<div class="chatDiv">
+                            <table class="chatTable">
+                                <tr>
+                                    <td class="first"> </td>
+                                    <td class="second">
+                                        <div class="speechR">
+                                            <p> sadbasd ksahd kasjdh asjdhk sajdhk asdh kashd aksjd hkasjd hkjasdh kajshdksajd hkajsdh kasjd hkasjhdkajs dhkas jdhask jdhsakdjashdkasj dhkasj dhka jsdhaksj dh</p>
+                                            <p class="time">a day ago</p>
+                                        </div>
+
+                                    </td>
+                                    <td class="third"><img src="assets/img/default.png" /></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="chatDiv">
+                            <table class="chatTable">
+                                <tr>
+                                    <td class="first"> <img src="assets/img/default.png" /></td>
+                                    <td class="second">
+                                        <div class="speechL">
+                                            <p> sadbasd ksahd kasjdh asjdhk sajdhk asdh kashd aksjd hkasjd hkjasdh kajshdksajd hkajsdh kasjd hkasjhdkajs dhkas jdhask jdhsakdjashdkasj dhkasj dhka jsdhaksj dh</p>
+                                            <p class="time">a day ago</p>
+                                        </div>
+                                    </td>
+                                    <td class="third"></td>
+                                </tr>
+                            </table>
+                        </div>-->
+                    </div>
+                    <div class="chattextbox">
+                        <div class="chattextbox-inner">
+                            <div class="textbox-main">
+                                <textarea id="dText" rows='2' data-min-rows='2' class="autoExpand" style="font-family: 'MyriadPro_Light';" placeholder="| Type here"></textarea>
+                                <img src="assets/img/send.png" onclick="onSendChat(this);" class="chatBtn" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="discussion_tab_innovation">
+                    <div id="InnovationPost_UIType_1">
+                        <div id="posted_innovations">
+
+                        </div>
+                    </div>
+                    <div id="InnovationPost_UIType_2" style="height: 450px;padding: 10px 50px 0px 50px;">
+                        <div>
+                            <img data-toggle="modal" data-target="#myInModal" src="assets/img/add.png" style="width:45px; float:left;" /> <span class="clr-darkblu" style="line-height: 45px;
+    margin-left: 10px;
+    font-size: 18px;" data-toggle="modal" data-target="#myInModal">Add Innovation</span>
+                        </div>
+                        <div id="innovationList" style="    height: calc(100% - 45px);
+    overflow: auto; -webkit-overflow-scrolling:touch;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>            </section>
+        </div>
+<div class='control-sidebar-bg'></div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog " role="document" style="    margin-top: calc(50% - 338px);">
+        <div class="modal-content" id="modalVendor">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Vendor</h4>
+            </div>
+            <div class="modal-body modal-centers">
+                <div class="input-div">
+                    <input type="text" id="vName" placeholder="Name" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="text" id="vEmail" placeholder="Email" onblur="checkVendorMailExist(this.value); getDefaultVendorCompany(this.value);" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="number" id="vPhone" min="0" placeholder="Contact Number" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="text" id="vCompany" placeholder="Company" class="input-cus" />
+                </div>
+
+                <div style="text-align: right;">
+                    <img src="assets/img/check.png" onclick="onAddVendor(this)" style="width: 40px;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog " role="document" style="    margin-top: calc(50% - 338px);">
+        <div class="modal-content" id="modalInnovation">
+            <div class="modal-header">
+                <button type="button" onclick="clear_add_inovation();" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Innovation</h4>
+            </div>
+            <div class="modal-body modal-centers">
+                <div class="input-div">
+                    <input type="text" id="iName" placeholder="Name of Innovation" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="text" id="iLink" placeholder="Link" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <textarea id="iDesc" class="" rows="4" placeholder="Add Description"></textarea>
+                </div>
+
+                <div style="text-align: right;">
+                    <img src="assets/img/check.png" onclick="onAddInnovation(this)" style="width: 40px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myprofile-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog " role="document" style="    margin-top: calc(45% - 338px); margin-left:20%;">
+        <div class="modal-content" id="modalVendor">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+            </div>
+            <div class="modal-body modal-centers">
+                <div class="input-div">
+                    <input type="text" id="pName" placeholder="Name" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="text" id="pDesignation" placeholder="Designation" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="text" id="pCompany" placeholder="Company" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="text" id="pEmail" placeholder="Email" onblur="checkVendorMailExist(this.value); getDefaultVendorCompany(this.value);" class="input-cus" />
+                </div>
+                <div class="input-div">
+                    <input type="text" id="pContact" placeholder="Contact" class="input-cus" />
+                </div>
+
+                <div style="text-align: right;">
+                    <img src="assets/img/check.png" onclick="onAddVendor(this)" style="width: 40px;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="redirect-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 0px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="margin: 0px; text-align: left;">Confirm your action</h4>
+            </div>
+            <div class="modal-body">
+                <p>Attention! Right now you are leaving Strategy Sketchpad and we are not responsible for anything that might happen on this page</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default customYes" onclick="redirectToLink();">Yes</button>
+                <button type="button" class="btn btn-default customNo" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Menu Help -->
+<div class="modal help-modal" id="ceo-menu-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-menu-count">1</span>/2</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-menu-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-menu-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-menu-carousel" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/menu/help_1.png" alt="Menu Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/sync/help_1.png" alt="Menu Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-menu-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-menu-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Head Menu Help -->
+<div class="modal help-modal" id="head-menu-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="head-menu-count">1</span>/1</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="head-menu-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#head-menu-carousel" data-slide-to="0" class="active"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/head/menu/help_1.png" alt="Menu Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <!--<a class="left carousel-control" href="#head-menu-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#head-menu-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vision Help -->
+<div class="modal help-modal" id="ceo-vision-help" tabindex="0" data-backdrop="static" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-vision-count">1</span>/3</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Vision</p>
+                            <p class="para1">
+                                A vision is an aspirational description of what an organisation would like to accomplish or achieve in the mid-term or long-term future. It is intended to serve as a clear guide for choosing current and future courses of action.
+                            </p>
+                            <p>Examples</p>
+                            <ul class="para1">
+                                <li>Amazon&#39;s vision is to be earth's most customer centric company; to build a place where people can come to find and discover anything they might want to buy online.</li>
+                            </ul>
+                            <p>Test your vision</p>
+                            <ul class="para1">
+                                <li>Is it unique to your organisation?</li>
+                                <li>Is it clear to all the employees?</li>
+                                <li>Is it well equipped to shape big and small decisions?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Budget</p>
+                            <p class="para1">
+                                Budget is an allocated amount to achieve the business objectives over a specific future period of time.
+                            </p>
+                            <p>Test your budget</p>
+                            <ul class="para1">
+                                <li>Is your budget adequate in terms of your defined objectives?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-vision-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-vision-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-vision-carousel" data-slide-to="1"></li>
+                                <li data-target="#ceo-vision-carousel" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/vision/help_1.png" alt="Vision Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/vision/help_2.png" alt="Vision Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/vision/help_3.png" alt="Vision Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-vision-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-vision-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Objective Help -->
+<div class="modal help-modal" id="ceo-objective-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-objective-count">1</span>/4</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Objective</p>
+                            <p class="para1">
+                                Business objectives are the outcomes that an organisation aims to achieve. Business strategies are created to achieve these outcomes.
+                            </p>
+                            <p>Examples</p>
+                            <ul class="para1">
+                                <li>To exceed $10 million in the next ten years.</li>
+                                <li>Expand sales to existing customers.</li>
+                            </ul>
+                            <p>Test your objectives</p>
+                            <ul class="para1">
+                                <li>Are the objectives <strong>S</strong>pecific?</li>
+                                <li>Are the objectives <strong>M</strong>easurable?</li>
+                                <li>Are the objectives <strong>A</strong>chievable?</li>
+                                <li>Are the objectives <strong>R</strong>elevant?</li>
+                                <li>What is the <strong>T</strong>imeline for these objectives?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Strategic Drivers</p>
+                            <p class="para1">
+                                Strategic Drivers are the internal and external factors that influence your business objective.
+                            </p>
+                            <p>Examples</p>
+                            <ul class="para1">
+                                <li>Change in Policy</li>
+                                <li>Government Legislation</li>
+                                <li>Market Data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-objective-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-objective-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-objective-carousel" data-slide-to="1"></li>
+                                <li data-target="#ceo-objective-carousel" data-slide-to="2"></li>
+                                <li data-target="#ceo-objective-carousel" data-slide-to="3"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/objective/help_1.png" alt="Objective Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/objective/help_2.png" alt="Objective Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/objective/help_3.png" alt="Objective Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/objective/help_4.png" alt="Objective Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-objective-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-objective-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Budget Help -->
+<div class="modal help-modal" id="ceo-budget-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-budget-count">1</span>/2</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-budget-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-budget-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-budget-carousel" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/budget/help_1.png" alt="Budget Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/budget/help_2.png" alt="Budget Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-budget-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-budget-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Function Help -->
+<div class="modal help-modal" id="ceo-function-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-function-count">1</span>/2</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Function</p>
+                            <p class="para1">
+                                A function is a division of a business structure which an organisation uses to control and manage its resources and capabilities.
+                            </p>
+                            <p>Examples</p>
+                            <ul class="para1">
+                                <li>Corporate Services</li>
+                                <li>Finance and Accounting</li>
+                            </ul>
+                            <p>Test your functions</p>
+                            <ul class="para1">
+                                <li>Do you have a well structured function?</li>
+                                <li>Are your functions independent from each other?</li>
+                                <li>Do you know what your new business function will do?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-function-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-function-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-function-carousel" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/functions/help_1.png" alt="Function Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/functions/help_2.png" alt="Function Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-function-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-function-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- KPI Help -->
+<div class="modal help-modal" id="ceo-kpi-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-kpi-count">1</span>/5</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Function-Objective-KPI mapping</p>
+                            <p class="para1">
+                                KPI Lens - These are the KPI categories under which different KPIs can be defined. The KPI lenses can be thought of as benefits that you want a particular business function to deliver in order to achieve a particular objective. There are a total of 9 KPI lenses classified as either Financial or Non-financial in nature.
+                            </p>
+                            <p>Financial</p>
+                            <ul class="para1">
+                                <li>Cost Avoidance</li>
+                                <li>Cost Reduction</li>
+                                <li>Increase in Revenue</li>
+                            </ul>
+                            <p>Non-Financial</p>
+                            <ul class="para1">
+                                <li>Risk Treatment</li>
+                                <li>Increased Quality</li>
+                                <li>Increased Client Satisfaction</li>
+                                <li>Increased Employee and Stakeholder satisfaction</li>
+                                <li>Reduction in Time</li>
+                                <li>Legislative Compliance</li>
+                            </ul>
+                            <p class="para1">KPIs - Or Key Point Indicators, are the metrics using which an objective&#39;s success can be measured.</p>
+                            <p class="para1">In order to fill the KPIs, ask yourself this: For this function, if we want to achieve an objective, what needs to be done (KPI) so that there is &#34;Increase in Revenue&#34; or &#34;Increase in client satisfaction&#34; (KPI lens).</p>
+                            <p class="para1">In order to define KPIs: </p>
+                            <p class="para1">a) Select the business function</p>
+                            <p class="para1">b) Choose an Objective</p>
+                            <p class="para1">c) Select the KPI Lenses that you think are relevant for each business function for that objective</p>
+                            <p class="para1">d) Fill in the KPI for each of the selected lenses</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-kpi-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-kpi-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-kpi-carousel" data-slide-to="1"></li>
+                                <li data-target="#ceo-kpi-carousel" data-slide-to="2"></li>
+                                <li data-target="#ceo-kpi-carousel" data-slide-to="3"></li>
+                                <li data-target="#ceo-kpi-carousel" data-slide-to="4"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/kpi/help_1.png" alt="KPI Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/kpi/help_2.png" alt="KPI Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/kpi/help_3.png" alt="KPI Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/kpi/help_4.png" alt="KPI Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/kpi/help_5.png" alt="KPI Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-kpi-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-kpi-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Explore Help -->
+<div class="modal help-modal" id="ceo-explore-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-explore-count">1</span>/7</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Explore</p>
+                            <p>Strategic Landscape</p>
+                            <p class="para1">
+                                You can explore your organisation&#39;s strategic landscape here - the organisation&#39;s vision, objectives, budget and  business functions.
+                            </p>
+                            <p>Innovation Landscape</p>
+                            <p class="para1">
+                                The Innovation Landscape is a dashboard where you can browse all innovations submitted by function heads for each KPI. You can filter the KPIs by functions or objectives.
+                            </p>
+                            <p class="para1">
+                                By clicking on a KPI card, you can view the innovations posted by the function head for that KPI. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-explore-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-explore-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-explore-carousel" data-slide-to="1"></li>
+                                <li data-target="#ceo-explore-carousel" data-slide-to="2"></li>
+                                <li data-target="#ceo-explore-carousel" data-slide-to="3"></li>
+                                <li data-target="#ceo-explore-carousel" data-slide-to="4"></li>
+                                <li data-target="#ceo-explore-carousel" data-slide-to="5"></li>
+                                <li data-target="#ceo-explore-carousel" data-slide-to="6"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/explore/help_1.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/explore/help_2.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/explore/help_3.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/explore/help_4.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/explore/help_5.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/explore/help_6.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/explore/help_7.png" alt="Explore Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-explore-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-explore-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Help -->
+<div class="modal help-modal" id="ceo-profile-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="ceo-profile-count">1</span>/2</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="ceo-profile-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#ceo-profile-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#ceo-profile-carousel" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/ceo/profile/help_1.png" alt="Profile Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/ceo/profile/help_2.png" alt="Profile Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#ceo-profile-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#ceo-profile-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Head Explore Help -->
+<div class="modal help-modal" id="head-explore-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="head-explore-count">1</span>/11</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+                            <br>
+                            <p style="color:red;">Explore</p>
+                            <p>Strategic Landscape</p>
+                            <p class="para1">
+                                You can explore your organisation&#39;s strategic landscape here - the organisation&#39;s vision, objectives, budget and  business functions.
+                            </p>
+                            <p>Innovation Landscape</p>
+                            <p class="para1">
+                                In the innovation landscape, you as the function head can view the KPIs set for your function by the CEO. You can start a one-to-one discussion with the CEO if there are any concerns. You can invite external vendors to submit innovations or can submit your own innovations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="head-explore-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#head-explore-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="1"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="2"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="3"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="4"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="5"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="6"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="7"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="8"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="9"></li>
+                                <li data-target="#head-explore-carousel" data-slide-to="10"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/head/explore/help_1.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_2.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_3.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_4.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_5.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_6.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_7.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_8.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_9.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_10.png" alt="Explore Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/explore/help_11.png" alt="Explore Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#head-explore-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#head-explore-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Head Profile Help -->
+<div class="modal help-modal" id="head-profile-help" tabindex="0" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content modal-lg center-block">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <strong style="float:left; font-size:14px; margin-top:5px;">
+                    SSP Help
+                    <span style="font-size: 18px;"><span id="head-profile-count">1</span>/2</span>
+                </strong>
+                <h4 class="modal-title">STRATEGIC LANDSCAPE</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left-containor">
+                    <div class="modal-left-heading">
+                        Guidance
+                    </div>
+                    <div class="parag">
+                        <div class="wrap1">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-right-containor">
+                    <div class="navig">Navigation</div>
+                    <div>
+                        <div id="head-profile-carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#head-profile-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#head-profile-carousel" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="assets/img/help/head/profile/help_1.png" alt="Profile Help">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/help/head/profile/help_2.png" alt="Profile Help">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#head-profile-carousel" role="button" data-slide="prev">
+                                <img src="assets/img/left_arrow_white.png" class="help-arrow-left">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#head-profile-carousel" role="button" data-slide="next">
+                                <img src="assets/img/right_arrow_white.png" class="help-arrow-right">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- my profile -->
+<div class="modal fade" id="myprofile1-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog " role="document" style="margin-top: calc(45% - 338px); margin-left:20%;">
+        <div class="modal-content" id="modalProfile">
+            <input type="hidden" id="hdnCurrentProfileId" value="0" />
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+            </div>
+            <div class="modal-body modal-centers">
+
+                <input type="file" id="regFile1" class="profileFile1"
+                       accept="image/*;capture=camera" onchange="DisplayPicture1(this);" />
+                <img class="profilePic1" id="regAvatar1" src="data:image/png;base64,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" />
+
+                <div class="input-div" id="nameContainer">
+                    <input type="text" id="pFirstName" placeholder="FirstName" class="input-cus" />
+                    <input type="text" id="pLastName" placeholder="LastName" class="input-cus" />
+                </div>
+                <div class="input-div" id="passwordContainer">
+                    <input type="password" id="pPassword" placeholder="Password" class="input-cus" />
+                </div>
+                <div class="input-div" id="titleContainer">
+                    <input type="text" id="pTitle" placeholder="Title" class="input-cus" />
+                </div>
+
+                <div class="input-div" id="phoneContainer">
+                    <input type="text" onkeypress="return ValidatePhone(event);" id="pPhone" placeholder="Contact" class="input-cus" />
+                </div>
+                <div class="input-div" id="img1Container">
+                    <input type="button" onclick="$('#regFile1').click()" id="btnCAva" value="Change Avatar" />
+                </div>
+
+                <div style="text-align: right;">
+                    <img src="assets/img/check.png" onclick="onSaveProfile(this)" style="width: 40px;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<canvas id="photo1" style="width:0px;height:0px;"></canvas>
+
+<div class="modal fade" id="modalImagecrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="height: 748px; width: 98%; margin: 1%;">
+        <div class="modal-content" style="height:100%;">
+            <div class="modal-body" style="min-height: 100px; height:90%;     background: rgb(223, 241, 242); overflow-y: auto;">
+                <table style="width: 350px; height:100%; margin: 0 auto; margin-top:-25px;">
+                    <tr>
+                        <td style="text-align:left;"><img src="assets/img/plus.png" onclick="$('.cropZoomIn').trigger('click');" style="width:40px;" /></td>
+                        <td style="text-align:center;">
+                            <img id="cropimage" alt="" />
+                        </td>
+                        <td style="text-align:right;"><img src="assets/img/minus.png" onclick="$('.cropZoomOut').trigger('click');" style="width:40px;" /></td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div class="modal-footer">
+                <div class="modal-foot-button">
+                    <button id="btnCloseImg" onclick="onclockcropimg();" class=" btn-primary-bright ink-reaction btn">Save</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--my code paste ends-->
+
+
+
+<script type="text/javascript" src="assets/js/core/jQuery-2.1.4.min.js"></script>
+<script type="text/javascript" src="assets/js/core/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="assets/js/core/jquery-ui-1.10.3.min.js"></script>
+<script type="text/javascript" src="assets/js/core/jquery.ui.touch.js"></script>
+
+<script type="text/javascript" src="assets/js/plugins/drum/hammer.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/drum/hammer.fakemultitouch.js"></script>
+<script type="text/javascript" src="assets/js/plugins/drum/drum.js"></script>
+
+<script type="text/javascript" src="assets/js/plugins/jquery.jqplot.min.js"></script>
+
+<script src="assets/js/plugins/jqplot.pieRenderer.js"></script>
+
+<script type="text/javascript" src="assets/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/myobjectivefunctions.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/jquery.inputfit.js"></script>
+<script type="text/javascript" src="assets/js/plugins/swipe/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="assets/js/core/app.js"></script>
+<script type="text/javascript" src="assets/js/core/toastr/toastr.js"></script>
+<script type="text/javascript" src="assets/js/CustomChart.js"></script>
+<script type="text/javascript" src="assets/js/jquery-asSwitch.js"></script>
+<script type="text/javascript" src="assets/js/FlexGauge.js"></script>
+
+<script type="text/javascript" src="assets/js/custom/init.js"></script>
+<script type="text/javascript" src="assets/js/webService/webobjects.js"></script>
+<script type="text/javascript" src="assets/js/webService/webservice.js"></script>
+<script type="text/javascript" src="assets/js/webService/userservice.js"></script>
+
+<script type="text/javascript" src="assets/js/localStorage/storageCore.js"></script>
+
+
+<script type="text/javascript" src="assets/js/plugins/transition/modernizr.custom.js"></script>
+<script type="text/javascript" src="assets/js/plugins/transition/jquery.dlmenu.js"></script>
+<script type="text/javascript" src="assets/js/plugins/transition/pagetransitions.js"></script>
+
+<script type="text/javascript" src="assets/js/plugins/swipe/jquery.touchSwipe.min.js"></script>
+
+<script type="text/javascript" src="assets/js/custom/profile.js"></script>
+<script type="text/javascript" src="assets/js/custom/vision.js"></script>
+<script type="text/javascript" src="assets/js/custom/common.js"></script>
+<script type="text/javascript" src="assets/js/custom/objective.js"></script>
+<script type="text/javascript" src="assets/js/custom/functions.js"></script>
+<script type="text/javascript" src="assets/js/custom/explore.js"></script>
+<script type="text/javascript" src="assets/js/custom/budget.js"></script>
+
+<script type="text/javascript" src="assets/js/core/photo/binaryajax.js"></script>
+<script type="text/javascript" src="assets/js/core/photo/exif.js"></script>
+<script type="text/javascript" src="assets/js/core/photo/hammer.js"></script>
+<script type="text/javascript" src="assets/js/core/photo/jquery.cropbox.js"></script>
+<script type="text/javascript" src="assets/js/core/photo/megapix-image.js"></script>
+
+
+
+
+
+</body>
+</html>

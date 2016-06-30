@@ -1,0 +1,283 @@
+.asSwitch {
+  position: relative;
+  display: inline-block;
+}
+
+.asSwitch:hover {
+  cursor: pointer;
+}
+
+.asSwitch > input {
+  display: none;
+}
+
+.asSwitch .asSwitch-inner {
+  overflow: hidden;
+}
+
+.asSwitch .asSwitch-on {
+  display: block;
+  float: left;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.asSwitch .asSwitch-off {
+  display: block;
+  float: left;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.asSwitch .asSwitch-handle {
+  position: absolute;
+  top: 0px;
+}
+
+
+
+
+.asSwitch .asSwitch-handle:hover {
+  cursor: pointer;
+}
+
+
+
+.asSwitch.asSwitch_skin-6 {
+  width: 55px;
+  height: 25px;
+  
+      margin-top: 6px;
+  transform:rotate(90deg);
+   -webkit-transform:rotate(90deg);
+  border-radius: 30px;
+  opacity: 0.85;
+  -webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.35);
+          box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.35);
+}
+
+
+
+.asSwitch.asSwitch_skin-6 .asSwitch-inner {
+  border-radius: 30px;
+}
+
+.asSwitch.asSwitch_skin-6 .asSwitch-inner-box {
+  width: 134px;
+  height: 20px;
+}
+
+.asSwitch.asSwitch_skin-6 .asSwitch-on {
+  width: 45px;
+  height: 25px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 30px;
+  color: transparent;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-color: #cccccc;
+  /*background-image: url("../images/on-check.png");*/
+  background-position: 40% 50%;
+  background-repeat: no-repeat;
+}
+
+.asSwitch.asSwitch_skin-6 .asSwitch-off {
+  width: 45px;
+  height: 25px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 30px;
+  color: transparent;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-color: #cccccc;
+  /*background-image: url("../images/off-error.png");*/
+  background-position: 60% 50%;
+  background-repeat: no-repeat;
+}
+
+ .asSwitch.asSwitch_skin-6 .asSwitch-handle {
+    z-index: 999;
+    width: 25px;
+    height: 25px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    background: #FCD600;
+    -webkit-box-shadow: inset 0 0 1px 2px #ffffff;
+    box-shadow: inset 0 0 0px 5px #ffffff;
+}
+
+ .asSwitch_on .asSwitch-handle
+ {
+     background: #52b8b7 !important;
+ }
+
+.asSwitch.asSwitch_skin-6 .asSwitch-handle:after {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    z-index: 9999;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    border-radius: 30px;
+    content: "";
+}
+
+.asSwitch.asSwitch_skin-6.is-on {
+  border: 1px solid #6ebbf1;
+  border-top-color: #1271b4;
+  border-left-color: #1271b4;
+}
+
+.asSwitch.asSwitch_skin-6.is-on .asSwitch-inner-box {
+  margin-left: 0;
+}
+
+.asSwitch.asSwitch_skin-6.is-on .asSwitch-handle {
+  left: 52px;
+}
+
+.asSwitch.asSwitch_skin-6.is-off {
+  border: 1px solid #a2a2a2;
+  border-top-color: #555555;
+  border-right-color: #555555;
+}
+
+.asSwitch.asSwitch_skin-6.is-off .asSwitch-inner-box {
+  margin-left: -52px;
+}
+
+.asSwitch.asSwitch_skin-6.is-off .asSwitch-handle {
+  left: 0;
+}
+.asSwitch_skin-6 .asSwitch-handle {
+  position: absolute;
+  top: 0px !important;
+}
+
+
+
+
+
+.asSwitch.asSwitch_skin-7 {
+    width: 100px;
+    height: 20px;
+    margin-top: 6px;
+    border-radius: 30px;
+    opacity: 0.85;
+    -webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.35);
+}
+
+
+
+.asSwitch.asSwitch_skin-7 .asSwitch-inner {
+  border-radius: 30px;
+  background: #cccccc;
+}
+
+.asSwitch.asSwitch_skin-7 .asSwitch-inner-box {
+  width: 134px;
+  height: 20px;
+}
+
+.asSwitch.asSwitch_skin-7 .asSwitch-on {
+width: 88px;
+    height: 0px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 30px;
+  color: transparent;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-color: #cccccc;
+  background-image: url("../images/on-check.png");
+  background-position: 40% 50%;
+  background-repeat: no-repeat;
+}
+
+.asSwitch.asSwitch_skin-7 .asSwitch-off {
+    width: 88px;
+    height: 20px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 30px;
+  color: transparent;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-color: #cccccc;
+  background-image: url("../images/off-error.png");
+  background-position: 60% 50%;
+  background-repeat: no-repeat;
+}
+
+ .asSwitch.asSwitch_skin-7 .asSwitch-handle {
+    z-index: 999;
+    width: 22px;
+    height: 22px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    background: #52B8B7;
+    -webkit-box-shadow: inset 0 0 1px 2px #ffffff;
+    box-shadow: inset 0 0 0px 3px #ffffff;
+}
+
+ .asSwitch_skin-7.asSwitch_on .asSwitch-handle
+ {
+        /*background: #FCD600 !important;*/
+            background: #EF5A25 !important;
+ }
+
+.asSwitch.asSwitch_skin-7 .asSwitch-handle:after {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    z-index: 9999;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    border-radius: 30px;
+    content: "";
+}
+
+.asSwitch.asSwitch_skin-7.is-on {
+  border: 1px solid #6ebbf1;
+  border-top-color: #1271b4;
+  border-left-color: #1271b4;
+}
+
+.asSwitch.asSwitch_skin-7.is-on .asSwitch-inner-box {
+  margin-left: 0;
+}
+
+.asSwitch.asSwitch_skin-7.is-on .asSwitch-handle {
+  left: 52px;
+}
+
+.asSwitch.asSwitch_skin-7.is-off {
+  border: 1px solid #a2a2a2;
+  border-top-color: #555555;
+  border-right-color: #555555;
+}
+
+.asSwitch.asSwitch_skin-7.is-off .asSwitch-inner-box {
+  margin-left: -52px;
+}
+
+.asSwitch.asSwitch_skin-7.is-off .asSwitch-handle {
+  left: 0;
+}
+
+.asSwitch_skin-7 .asSwitch-handle {
+  position: absolute;
+  top: -1px !important;
+}
+
+
+

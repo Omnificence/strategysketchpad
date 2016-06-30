@@ -1,0 +1,1 @@
+function Innovation(){this.innovationid=0,this.name="",this.link="",this.description="",this.kpimapid=0,this.ispublished=0,this.vendorid=0}function Vendor(){this.vendorid=0,this.vendorname="",this.vendoremail="",this.vendorcompany="",this.vendorphone="",this.password="",this.kpimapid=0,this.invitecode=""}var _gLocalUrl="/service/";

@@ -1,0 +1,195 @@
+﻿body {
+    width: 100%;
+    height: 100%;
+    background: url(../../img/login_bg.png) no-repeat;
+    font-family: 'HelveticaNeueLTCom_Lt';
+    margin: 0px;
+    color: #404041;
+    position: absolute;
+    background-size: 100%;
+}
+
+
+.main-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container {
+    margin: 0 auto;
+    width: 450px;
+    box-shadow: 0px 0px 7px -2px black;
+    border-radius: 7px;
+    margin-top: 200px;
+    color: #404041;
+    position: relative;
+}
+
+.login-header {
+    text-align: center;
+    padding: 10px;
+    font-size: 22px;
+    border-radius: 7px 7px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-bottom: 4px solid #f0c30f;
+}
+
+.login-body {
+    padding: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0px 0px 7px 7px;
+}
+
+
+.login-table input[type=text], .login-table input[type=password] {
+    width: 90%;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.login-table {
+    margin: 0 auto;
+    width: 90%;
+}
+
+
+hr.or {
+    padding: 0;
+    border: none;
+    border-top: 1px solid rgba(64, 64, 65, 0.2);
+    color: #A9A9A9;
+    text-align: center;
+    width: 368px;
+}
+
+    hr.or:after {
+        content: "OR";
+        display: inline-block;
+        position: relative;
+        top: -15px;
+        font-size: 15px;
+        padding: 3px 4px 0px 4px;
+        background: rgb(223, 241, 242);
+        border-radius: 20px;
+    }
+
+
+.btn-login {
+    border: none;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 20px;
+    background: rgba(92, 154, 157, 0.5);
+    color: #404041;
+    margin: 0 auto;
+    text-transform: none;
+    width: 360px;
+}
+
+.mt-10 {
+    margin-top: 20px;
+}
+
+.split-btn-cont {
+    width: 400px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.split-btn-right {
+    width: 199px;
+    float: right;
+    border-left: 1px solid #989696;
+    background: #B1E0E2;
+}
+
+.split-btn-left {
+    width: 176px;
+    float: left;
+    background: #B1E0E2;
+}
+
+
+#SignUpAlert {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+
+.acc-container {
+    margin: 0 auto;
+    width: 800px;
+    box-shadow: 0px 0px 7px -2px black;
+    border-radius: 7px;
+    color: #404041;
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -230px;
+}
+
+.acc-header {
+    text-align: center;
+    font-size: 22px;
+    border-radius: 7px 7px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-bottom: 4px solid #f0c30f;
+}
+
+.acc-body {
+    padding: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0px 0px 7px 7px;
+}
+
+
+.acc-table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+    .acc-table tr td {
+        padding: 10px;
+    }
+
+
+    .acc-table input[type=text], .acc-table input[type=number], .acc-table input[type=password], .acc-table select {
+        width: 90%;
+        border: none;
+        padding: 15px;
+        font-size: 16px;
+        border-radius: 7px;
+        background: rgba(255, 255, 255, 0.65);
+    }
+
+
+.profilePic {
+    position: absolute;
+    top: -96px;
+    left: 0;
+    border-radius: 100px;
+    height: 150px;
+    width: 150px;
+    border: 4px solid #CDEAEB;
+}
+
+
+.profileFile {
+    margin: 0 auto;
+    z-index: 999;
+    position: absolute;
+    top: -96px;
+    left: 0;
+    border-radius: 100px;
+    height: 150px;
+    width: 150px;
+    opacity: 0;
+}
